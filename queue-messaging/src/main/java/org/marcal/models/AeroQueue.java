@@ -6,16 +6,17 @@ import java.util.Queue;
 public class AeroQueue implements Serializable {
 
     private String queueName;
-    private String bindKey;
-    private Queue<?> messages;
+    private Queue<Object> queue;
 
-    public AeroQueue(String queueName, String bindKey, Queue<?> messages) {
+    public AeroQueue(String queueName, Queue<Object> queue) {
         this.queueName = queueName;
-        this.bindKey = bindKey;
-        this.messages = messages;
+        this.queue = queue;
     }
 
-    public AeroQueue() {
+    public AeroQueue() {}
+
+    public void enqueue(Object message) {
+        this.queue.add(message);
     }
 
     public String getQueueName() {
@@ -26,28 +27,19 @@ public class AeroQueue implements Serializable {
         this.queueName = queueName;
     }
 
-    public String getBindKey() {
-        return bindKey;
+    public Queue<Object> getQueue() {
+        return queue;
     }
 
-    public void setBindKey(String bindKey) {
-        this.bindKey = bindKey;
-    }
-
-    public Queue<?> getMessages() {
-        return messages;
-    }
-
-    public void setMessages(Queue<?> messages) {
-        this.messages = messages;
+    public void setQueue(Queue<Object> queue) {
+        this.queue = queue;
     }
 
     @Override
     public String toString() {
         return "AeroQueue{" +
                 "queueName='" + queueName + '\'' +
-                ", bindKey='" + bindKey + '\'' +
-                ", messages=" + messages +
+                ", messages=" + queue +
                 '}';
     }
 }
