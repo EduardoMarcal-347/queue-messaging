@@ -3,17 +3,17 @@ package org.marcal.models;
 import java.io.Serializable;
 import java.util.Queue;
 
-public class AeroQueue implements Serializable {
+public class MessageQueue implements Serializable {
 
     private String queueName;
     private Queue<Object> queue;
 
-    public AeroQueue(String queueName, Queue<Object> queue) {
+    public MessageQueue( String queueName, Queue<Object> queue) {
         this.queueName = queueName;
         this.queue = queue;
     }
 
-    public AeroQueue() {}
+    public MessageQueue() {}
 
     public void enqueue(Object message) {
         this.queue.add(message);

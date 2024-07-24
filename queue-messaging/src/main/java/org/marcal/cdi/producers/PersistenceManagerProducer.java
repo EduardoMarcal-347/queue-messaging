@@ -1,7 +1,7 @@
 package org.marcal.cdi.producers;
 
 import org.marcal.cdi.qualifiers.Persistence;
-import org.marcal.models.AeroQueue;
+import org.marcal.models.MessageQueue;
 import org.marcal.models.Binding;
 import org.marcal.models.Exchange;
 import org.marcal.persistence.manager.AeroQueuePersistence;
@@ -20,7 +20,7 @@ public class PersistenceManagerProducer {
     @Persistence
     public AeroQueuePersistence createQueuePersistence() {
         String filename = "/home/eduardo/Imagens/queues.json";
-        Class<AeroQueue> clazz = AeroQueue.class;
+        Class<MessageQueue> clazz = MessageQueue.class;
         return new AeroQueuePersistence(filename, clazz);
     }
 

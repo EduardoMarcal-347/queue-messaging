@@ -7,10 +7,10 @@ import java.io.Serializable;
 public class Binding implements Serializable, Observer {
 
     private Exchange exchange;
-    private AeroQueue queue;
+    private MessageQueue queue;
     private String routingKey;
 
-    public Binding(Exchange exchange, AeroQueue queue, String routingKey) {
+    public Binding( Exchange exchange, MessageQueue queue, String routingKey) {
         this.exchange = exchange;
         this.queue = queue;
         this.routingKey = routingKey;
@@ -27,11 +27,11 @@ public class Binding implements Serializable, Observer {
         this.exchange = exchange;
     }
 
-    public AeroQueue getQueue() {
+    public MessageQueue getQueue() {
         return queue;
     }
 
-    public void setQueue(AeroQueue queue) {
+    public void setQueue( MessageQueue queue) {
         this.queue = queue;
     }
 
